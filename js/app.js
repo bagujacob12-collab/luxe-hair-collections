@@ -133,7 +133,9 @@ products.forEach(function (product) {
 
     card.append(imageWrapper, content);
 
-    featuredProducts.append(card);
+    if (featuredProducts) {
+        featuredProducts.append(card);
+    }
 });
 
 
