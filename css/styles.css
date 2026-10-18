@@ -771,9 +771,16 @@ button {
 }
 
 .testimonial-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-lg);
+    display: flex;
+    overflow-x: auto;
+    gap: var(--space-md);
+    scroll-snap-type: x mandatory;
+    padding-bottom: var(--space-sm)
+}
+
+.testimonial-grid >*{
+    flex: 0 0 85%;
+    scroll-snap-align: start;
 }
 
 .testimonial-card {
@@ -807,7 +814,24 @@ button {
 
 .testimonial-author span {
     color: var(--color-text-light);
-    font-size: var(--text-xs);
+    font-size: 
+    var(--text-xs);
+}
+
+@media (min-width: 768px) {
+    .testimonial-grid >*{
+        flex: 0 0 45%;
+    }
+    
+}
+
+@media (min-width: 992px) {
+    .testimonial-grid{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-lg);
+
+    }
 }
 
 
@@ -979,6 +1003,10 @@ button {
     transition: background-color var(--transition-fast);
     z-index: 2;
     
+}
+
+.like-btn.liked{
+    color: #e53e3e;
 }
 
 .product-image img {
@@ -1443,6 +1471,25 @@ body.dark-mode .product-button {
     color: var(--color-primary);
 }
 
+.add-to-cart-btn{
+    margin-top: var(--space-md);
+    padding: 0.85rem 1rem;
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    border: none;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--transition-normal);
+}
+
+.add-to-cart-btn:hover{
+    background-color: var(--color-primary-light);
+}
+
+body.dark-mode .body.dark-mode{
+    background-color: var(--color-dark);
+}
 /* Dark mode */
 
 body.dark-mode .product-details-content {

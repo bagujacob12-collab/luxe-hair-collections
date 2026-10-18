@@ -49,6 +49,12 @@ themeToggle.addEventListener("click", function () {
 
 const featuredProducts = document.querySelector("#featured-products");
 
+let likedIds = JSON.parse(localStorage.getItem("luxeLikes")) || [];
+
+function saveLikes() {
+    localStorage.setItem("luxeLikes", JSON.stringify(likedIds));
+}
+
 products.forEach(function (product) {
 
     const card = document.createElement("article");
@@ -75,10 +81,26 @@ products.forEach(function (product) {
     heartButton.dataset.productId = product.id;
     imageWrapper.append(heartButton);
 
+    if (likedIds.includes(product.id)) {
+        heartButton.classList.add("liked");
+        heartButton.textContent = "❤";
+    }
+
     heartButton.addEventListener("click", (event) => {
-        event.stopPropagation(); // Prevent the click from bubbling up to the card
-        heartButton.classList.toggle("liked");
-        heartButton.textContent = heartButton.classList.contains("liked") ? "❤" : "♡";
+        event.stopPropagation();
+
+        if (likedIds.includes(product.id)) {
+            likedIds = likedIds.filter(id => id !== product.id);    
+            heartButton.classList.remove("liked");
+            heartButton.textContent = "♡";
+
+        } else {
+            likedIds.push(product.id);
+            heartButton.classList.add("liked");
+            heartButton.textContent = "❤";
+        }
+
+        saveLikes();
     });
 
     const content = document.createElement("div");
@@ -192,3 +214,8 @@ const closeDetails = document.querySelector(".close-details");
 closeDetails.addEventListener("click", () => {
     productDetails.classList.remove("active");
 });
+
+//YEAR SPAN
+const yearSpan = document.querySelector("#year");
+const currentYear = new Date().getFullYear();
+yearSpan.textContent = currentYear;

@@ -21,3 +21,24 @@ function sendOrderToWhatsApp() {
 
     const checkoutButton = document.querySelector("#checkout-btn");
     checkoutButton.addEventListener("click", sendOrderToWhatsApp);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    document.querySelectorAll("[data-whatsapp]"). forEach(link =>{
+        const text = link.dataset.message || "Hello Luxe Hair, i would like to make an enquiry.";
+        link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+        link.target = "-blank";
+        link.rel = "noopener";
+
+    });
