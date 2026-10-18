@@ -117,9 +117,11 @@ products.forEach(function (product) {
     button.classList.add("product-button");
     button.textContent = "Add to Cart";
     button.dataset.productId = product.id;
+
     button.addEventListener("click", (event) => {
         event.stopPropagation(); // Prevent the click from bubbling up to the card
         openProductDetails(Number(button.dataset.productId));
+    
     }); 
 
     const price = document.createElement("p");
@@ -178,7 +180,7 @@ function openProductDetails(productId){
         const addToCartButton = productDetailsBody.querySelector(".add-to-cart-btn");
         addToCartButton.addEventListener("click", () => {
             if (selectedLength === null) {
-                alert("Please select a length.");
+                showToast("Please select a length first.");
                 return;
             }
             // Add to cart logic here
@@ -191,6 +193,7 @@ function openProductDetails(productId){
                 quantity: 1
             };
             addToCart(item);
+            showToast(`${item.name} (${item.length}") added to cart`);
 
         });
         

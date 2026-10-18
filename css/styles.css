@@ -1733,3 +1733,48 @@ body.dark-mode .cart-subtotal {
 .checkout-btn:disabled:hover{
     background: var(--color-secondary);
 }
+
+
+.toast {
+    position: fixed;
+    top: 35%;
+    left: 70%;
+    transform: translate(-50%, 10px);
+    max-width: calc(100% - 2rem);
+    padding: var(--space-md) var(--space-xs);
+    text-align: center;
+    background: var(--color-primary);
+    color: var(--color-white);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-lg);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--transition-normal),
+                transform var(--transition-normal),
+                visibility var(--transition-normal);
+    z-index: 1100;
+
+  }
+  
+  .toast.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translate(-50%, 0);
+}
+
+.cart-count.bump{
+    animation: bump 0.3s ease;
+}
+
+@keyframes bump {
+    0% {transform: scale(1); }
+    50% {transform: scale(1.4); }
+    100% {transform: scale(1);}
+
+}
+
+body.dark-mode .toast{
+    background: var(--color-secondary);
+    color: var(--color-primary);
+}

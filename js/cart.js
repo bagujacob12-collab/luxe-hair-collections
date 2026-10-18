@@ -13,6 +13,14 @@ function addToCart(item){
     }
     else{cart.push(item)}
     renderCart();
+    bumpCartCount();
+}
+
+function bumpCartCount() {
+    const cartCount = document.querySelector(".cart-count");
+    if (!cartCount) return;
+    cartCount.classList.add("bump");
+    setTimeout(() => cartCount.classList.remove("bump"), 300);
 }
 
 
