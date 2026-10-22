@@ -1737,7 +1737,7 @@ body.dark-mode .cart-subtotal {
 
 .toast {
     position: fixed;
-    top: 35%;
+    top: 25%;
     left: 70%;
     transform: translate(-50%, 10px);
     max-width: calc(100% - 2rem);
@@ -2683,4 +2683,226 @@ body.dark-mode .skeleton-card {
 /* ---------- WhatsApp help section ---------- */
 body.dark-mode .shop-cta {
   background: var(--color-dark-soft);
+}
+
+/* =========================================================
+   QUICK ADD SHEET (complete)
+   ========================================================= */
+
+/* Dim background */
+.quick-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(23, 19, 19, 0.55);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: var(--transition-normal);
+  z-index: 1000;
+}
+
+.quick-overlay.open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* The sheet: slides up from the bottom on phone */
+.quick-add {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: var(--space-md);
+  background: var(--color-white);
+  border-radius: var(--border-radius-lg) var(--border-radius-lg) 0 0;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(100%);
+  visibility: hidden;
+  transition: transform var(--transition-normal), visibility var(--transition-normal);
+  z-index: 1001;
+}
+
+.quick-add.open {
+  transform: translateY(0);
+  visibility: visible;
+}
+
+/* Close button */
+.quick-close {
+  position: absolute;
+  top: var(--space-sm);
+  right: var(--space-sm);
+  width: 36px;
+  height: 36px;
+  background: var(--color-cream);
+  border: none;
+  border-radius: var(--border-radius-full);
+  font-size: 1.4rem;
+  line-height: 1;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+/* Product header: image + name */
+.quick-product {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+  padding-right: var(--space-xl);
+}
+
+.quick-product img {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: var(--border-radius-md);
+}
+
+.quick-product h3 {
+  font-family: var(--font-heading);
+  font-size: var(--text-md);
+  color: var(--color-primary);
+}
+
+/* One row per length */
+.quick-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--space-xs) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.quick-row strong {
+  display: block;
+  color: var(--color-primary);
+}
+
+.quick-row small {
+  color: var(--color-text-light);
+}
+
+.quick-row .qty-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.quick-row .qty-btn {
+  width: 40px;
+  height: 40px;
+  background: var(--color-cream);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.quick-row .qty-btn.active{
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+body.dark-mode .quick-row .qty-btn.active{
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+.quick-row .qty-value {
+  min-width: 24px;
+  text-align: center;
+  color: var(--color-text);
+}
+
+/* Total line */
+.quick-total {
+  display: flex;
+  justify-content: space-between;
+  margin-top: var(--space-sm);
+  font-weight: 700;
+  color: var(--color-primary);
+}
+
+/* Bottom buttons */
+.quick-actions {
+  display: flex;
+  gap: var(--space-xs);
+  margin-top: var(--space-md);
+}
+
+.quick-actions button {
+  flex: 1;
+  padding: 0.85rem;
+  border-radius: var(--border-radius-md);
+  font-weight: 700;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.quick-actions .quick-continue {
+  background: transparent;
+  border: 2px solid var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.quick-actions .quick-go-cart {
+  background: var(--color-secondary);
+  border: 2px solid var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.quick-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Tablet and up: centered panel instead of full width */
+@media (min-width: 768px) {
+  .quick-add {
+    left: 50%;
+    right: auto;
+    width: 440px;
+    transform: translate(-50%, 100%);
+  }
+
+  .quick-add.open {
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Dark mode */
+body.dark-mode .quick-add {
+  background: var(--color-dark-soft);
+}
+
+body.dark-mode .quick-product h3,
+body.dark-mode .quick-row strong {
+  color: var(--color-secondary-light);
+}
+
+body.dark-mode .quick-total,
+body.dark-mode .quick-row .qty-value {
+  color: var(--color-beige);
+}
+
+body.dark-mode .quick-close,
+body.dark-mode .quick-row .qty-btn {
+  background: var(--color-dark);
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-beige);
+}
+
+body.dark-mode .quick-row {
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .quick-actions .quick-continue {
+  color: var(--color-secondary-light);
 }

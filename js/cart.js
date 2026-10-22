@@ -16,6 +16,19 @@ function addToCart(item){
     bumpCartCount();
 }
 
+function removeOneFromCart(id, length) {
+    const item = cart.find(cartItem => cartItem.id === id && cartItem.length === length);
+    if (!item) return;
+
+    item.quantity -= 1;
+    if (item.quantity <= 0) {
+        cart = cart.filter(cartItem => cartItem !== item);
+    }
+
+    renderCart();
+        
+}
+
 function bumpCartCount() {
     const cartCount = document.querySelector(".cart-count");
     if (!cartCount) return;
