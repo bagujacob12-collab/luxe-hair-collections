@@ -55,7 +55,10 @@ function saveLikes() {
     localStorage.setItem("luxeLikes", JSON.stringify(likedIds));
 }
 
-products.forEach(function (product) {
+
+
+
+function createProductCard(product) {
 
     const card = document.createElement("article");
     card.classList.add("product-card");
@@ -74,6 +77,15 @@ products.forEach(function (product) {
     image.alt = product.name;
 
     imageWrapper.append(image);
+
+    const badge = document.createElement("span");
+
+    if (product.badge) {
+      badge.classList.add("product-badge", "badge-" + product.badge.toLowerCase());
+      badge.textContent = product.badge;
+    }
+
+    imageWrapper.append(badge);
 
     const heartButton = document.createElement("button");
     heartButton.classList.add("like-btn");
@@ -133,32 +145,38 @@ products.forEach(function (product) {
 
     card.append(imageWrapper, content);
 
-    if (featuredProducts) {
-        featuredProducts.append(card);
-    }
-});
+    return card;  
+
+}
+
+if (featuredProducts) {
+  products.filter(product => product.featured).forEach(product => {
+    featuredProducts.append(createProductCard(product));
+  });
+} 
+
+  /*products.filter(product => product.featured).forEach(product => {
+    featuredProducts.append(createProductCard(product));
+  })*/
+
+
+
 
 
 // ===== QUICK ADD SHEET =====
 
-// Page elements: selected once and never replaced, so const
 const quickAdd = document.querySelector("#quick-add");
 const quickOverlay = document.querySelector("#quick-overlay");
 const quickBody = document.querySelector("#quick-add-body");
 const quickClose = document.querySelector("#quick-close");
 
-// How many of each length the customer picked: { 18: 2, 22: 1 }. It changes, so let
 let quickQuantities = {};
 
 function openQuickAdd(productId) {
-  // Find the product that was clicked (const: made fresh on every call)
   const quickProduct = products.find(product => product.id === productId);
 
-  // Start from zero every time the sheet opens
   quickQuantities = {};
 
-
-  // map() turns each length into one row of HTML; join("") glues the rows into one string
   const rowsHTML = quickProduct.lengths.map(length => `
     <div class="quick-row">
       <div>
@@ -173,7 +191,6 @@ function openQuickAdd(productId) {
     </div>
   `).join("");
 
-  // Fill the sheet: product header, the rows, a total line, and two buttons (disabled until something is picked)
   quickBody.innerHTML = `
     <div class="quick-product">
       <img src="${quickProduct.image}" alt="${quickProduct.name}">
@@ -187,34 +204,28 @@ function openQuickAdd(productId) {
     </div>
   `;
 
-  // Select the new elements AFTER innerHTML (they did not exist before this line)
   const qtyButtons = quickBody.querySelectorAll(".qty-btn");
   const totalValue = quickBody.querySelector(".quick-total-value");
   const continueButton = quickBody.querySelector(".quick-continue");
   const goCartButton = quickBody.querySelector(".quick-go-cart");
 
-  // A function inside a function: it can use quickProduct and the buttons above
+
   function refreshTotals() {
-    // Object.values gives [2, 1]; reduce adds them up to get the total quantity
     const totalQuantity = Object.values(quickQuantities).reduce((sum, qty) => sum + qty, 0);
 
-    // Show the money total
     totalValue.textContent = formatPrice(quickProduct.price * totalQuantity);
-
-    // Buttons work only when at least one item is picked
     
     goCartButton.disabled = totalQuantity === 0;
   }
-  continueButton.disabled = false;  // always enabled
+  continueButton.disabled = false;  
 
-  // − and + buttons: one loop handles all of them
   qtyButtons.forEach(button => {
     button.addEventListener("click", () => {
-      const length = button.dataset.length;           // which row (string)
-      const change = Number(button.dataset.change);   // -1 or 1
-      const before = quickQuantities[length] || 0;            // how many were there before (0 if empty)
+      const length = button.dataset.length;           
+      const change = Number(button.dataset.change);   
+      const before = quickQuantities[length] || 0;            
       quickQuantities[length] = Math.max(0, before + change);
-      const after = quickQuantities[length];             // how many are there now (0 if empty)
+      const after = quickQuantities[length];             
 
       if (after > before) {
         addToCart({
@@ -222,7 +233,7 @@ function openQuickAdd(productId) {
           name: quickProduct.name,
           price: quickProduct.price,
           image: quickProduct.image,
-          length: Number(length),   // keys are strings, so convert back to a number
+          length: Number(length),   
           quantity: 1
         });
         showToast(`Added ${quickProduct.name} (${length}") to cart`);
@@ -239,32 +250,25 @@ function openQuickAdd(productId) {
         }
       })
   
-
       quickBody.querySelector(`.qty-value[data-length="${length}"]`).textContent = quickQuantities[length];
       refreshTotals();
     })
   });
 
-  // Continue Shopping: then close
   continueButton.addEventListener("click", () => {
     closeQuickAdd();
   });
 
-  // Go to Cart: close, then open the cart drawer
   goCartButton.addEventListener("click", () => {
-    /* addQuickSelectionToCart(quickProduct); */
     closeQuickAdd();
     openCart();
   });
 
-  // Finally slide the sheet in
   quickAdd.classList.add("open");
   quickOverlay.classList.add("open");
 }
 
-// Sends every picked length to the cart
 function addQuickSelectionToCart(product) {
-  // Object.entries gives [["18", 2], ["22", 1]]; [length, quantity] unpacks each pair
   Object.entries(quickQuantities).forEach(([length, quantity]) => {
     if (quantity > 0) {
       addToCart({
@@ -272,7 +276,7 @@ function addQuickSelectionToCart(product) {
         name: product.name,
         price: product.price,
         image: product.image,
-        length: Number(length),   // keys are strings, so convert back to a number
+        length: Number(length),   
         quantity: quantity
       });
     }

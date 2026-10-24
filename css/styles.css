@@ -2106,6 +2106,8 @@ body.dark-mode .toast{
 }
 
 
+
+
 /* =========================================================
    SHOP PAGE, PART 2
    Filter panel, active tags, empty state, load more, CTA
@@ -2905,4 +2907,28 @@ body.dark-mode .quick-row {
 
 body.dark-mode .quick-actions .quick-continue {
   color: var(--color-secondary-light);
+}
+
+
+/*  BADGE STYLING */
+.product-badge {
+  position: absolute;
+  top: var(--space-xs);
+  left: var(--space-xs);
+  padding: 0.7rem;
+  border-radius: var(--border-radius-md);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.badge-new {
+  background: var(--color-secondary);
+  color: var(--color-primary);
+}
+
+.badge-sale {
+  background: #e53e3e;
+  color: var(--color-white);
 }
