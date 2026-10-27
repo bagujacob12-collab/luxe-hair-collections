@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services</title>
+  <meta name="description" content="Shop premium bundles, wigs, closures and frontals. Order easily on WhatsApp.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="site-header">
+
+        <nav class="navbar container">
+
+            <a href="index.html" class="brand">
+                <span class="brand-name">Luxe Hair</span>
+                <span class="brand-subtitle">Collections</span>
+            </a>
+
+            <div class="nav-menu">
+
+                <a href="index.html" class="nav-link">
+                    Home
+                </a>
+
+                <a href="shop.html" class="nav-link">
+                    Shop
+                </a>
+
+                <a href="visualizer.html" class="nav-link">
+                    Visualizer
+                </a>
+
+                <a href="services.html" class="nav-link">
+                    Services
+                </a>
+
+                <a href="about.html" class="nav-link">
+                    About
+                </a>
+
+                <a href="contact.html" class="nav-link active">
+                    Contact
+                </a>
+
+            </div>
+
+            <button
+                type="button"
+                class="theme-toggle"
+                aria-label="Toggle dark mode">
+
+                <span class="theme-icon">🌙</span>
+                
+            </button>
+
+            <div class="nav-actions">
+
+                <button
+                    type="button"
+                    id="cart-button"
+                    class="cart-button"
+                    aria-label="Open shopping cart"
+                >
+                    <span class="cart-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart-icon lucide-shopping-cart"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                    </span>
+
+                    <span class="cart-count">0</span>
+                </button>
+
+                <a
+                    href="https://wa.me/2349164220790"
+                    class="nav-whatsapp"
+                    target="_blank"
+                    rel="noopener"
+                    data-whatsapp
+                >
+                    WhatsApp
+                </a>
+
+                <button
+                    type="button"
+                    class="menu-toggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+        <section class="hero-lux">
+            <svg class="strands" viewBox="0 0 800 320" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M-20 240 C 140 60, 300 340, 470 170 S 740 40, 840 150"/>
+            <path d="M-20 270 C 160 120, 330 330, 500 200 S 760 90, 840 190"/>
+            <path d="M-20 200 C 120 20, 280 300, 450 120 S 720 10, 840 100"/>
+            <path d="M-20 290 C 180 170, 350 320, 520 240 S 780 140, 840 230"/>
+            </svg>
+            <div class="hero-inner">
+            <h1>
+                <span class="line"><span>Tell us what</span></span>
+                <span class="line"><span>you have in mind.</span></span>
+            </h1>
+            <p>Orders are open 24 hours. We reply on WhatsApp.</p>
+            </div>
+        </section>
+
+        <section class="contact-grid">
+
+            <!-- Left: ways to reach us -->
+            <div class="channels">
+            <h2>Reach us</h2>
+
+            <a class="channel" href="https://wa.me/2349164220790" target="_blank" rel="noopener">
+                <span class="channel-name">WhatsApp</span>
+                <span class="channel-value">+234 916 422 0790</span>
+            </a>
+            <a class="channel" href="tel:+2349164220790">
+                <span class="channel-name">Call</span>
+                <span class="channel-value">+234 916 422 0790</span>
+            </a>
+            <a class="channel" href="mailto:luxehaircollections@gmail.com">
+                <span class="channel-name">Email</span>
+                <span class="channel-value">luxehaircollections@gmail.com</span>
+            </a>
+            <a class="channel" href="https://instagram.com/luxehaircollections" target="_blank" rel="noopener">
+                <span class="channel-name">Instagram</span>
+                <span class="channel-value">@luxehaircollections</span>
+            </a>
+            <a class="channel" href="https://www.tiktok.com/@luxehaircollections" target="_blank" rel="noopener">
+                <span class="channel-name">TikTok</span>
+                <span class="channel-value">@luxehaircollections</span>
+            </a>
+
+            <p class="channel-note">1st Avenue, Gwarimpa, Abuja. Deliveries run 8am to 6pm.</p>
+            </div>
+
+            <!-- Right: the form -->
+            <form class="contact-form" id="contact-form" novalidate>
+            <h2>Send us a message</h2>
+
+            <div class="field">
+                <label for="c-name">Your name</label>
+                <input type="text" id="c-name" autocomplete="name">
+                <span class="error"></span>
+            </div>
+
+            <div class="field">
+                <label for="c-phone">Phone number</label>
+                <input type="tel" id="c-phone" autocomplete="tel" placeholder="08012345678">
+                <span class="error"></span>
+            </div>
+
+            <div class="field">
+                <label for="c-topic">What is it about?</label>
+                <select id="c-topic">
+                <option value="Wigs">Wigs</option>
+                <option value="Hair bundles">Hair bundles</option>
+                <option value="Closures">Closures</option>
+                <option value="Frontals">Frontals</option>
+                <option value="Wig revamping">Wig revamping</option>
+                <option value="Hair consultation">Hair consultation</option>
+                <option value="Delivery">Delivery</option>
+                <option value="Something else">Something else</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label for="c-message">Your message</label>
+                <textarea id="c-message" rows="5" placeholder="Tell us the length, texture or style you want."></textarea>
+                <span class="error"></span>
+            </div>
+
+            <button type="submit" class="service-link solid form-submit">Send on WhatsApp</button>
+            </form>
+        </section>
+
+        <section class="service-group">
+            <h2>Questions people ask</h2>
+            <div id="faq-list"></div>
+        </section>
+
+        <section class="cta-dark">
+            <h2>Prefer to just browse?</h2>
+            <p>Everything is in the shop, and we confirm stock before you pay.</p>
+            <a class="service-link solid" href="shop.html">Shop now</a>
+        </section>
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-grid">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="brand">
+
+                    <span class="brand-name">
+                        Luxe Hair
+                    </span>
+
+                    <span class="brand-subtitle">
+                        Collections
+                    </span>
+
+                </a>
+
+                <p>
+                    Premium hair and beauty,
+                    made simple.
+                </p>
+
+                <a
+                    href="https://wa.me/2349164220790"
+                    class="footer-whatsapp"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Chat with us on WhatsApp →
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Explore
+                </h3>
+
+                <a href="shop.html">
+                    Shop
+                </a>
+
+                <a href="visualizer.html">
+                    Visualizer
+                </a>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Company
+                </h3>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Follow Us
+                </h3>
+
+                <a href="#" target="_blank">
+                    Instagram
+                </a>
+
+                <a href="#" target="_blank">
+                    TikTok
+                </a>
+
+                <a href="#" target="_blank" data-whatsapp>
+                    WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="container footer-bottom">
+
+            <p>
+                © <span id="year">2026</span> Luxe Hair Collections.
+                All rights reserved.
+            </p>
+
+            <p>
+                Abuja, Nigeria
+            </p>
+
+        </div>
+
+    </footer>
+
+
+            <!-- =========================
+                    PRODUCT DETAILS MODAL
+            ========================== -->
+    <div id="product-details" class="product-details">
+        <div class="product-details-content">
+            <button class="close-details" type="button">&times;</button>
+
+            <div class="product-details-body">
+                <!-- JavaScript will insert product information here -->
+            </div>
+        </div>
+    </div>    
+
+    
+        <!-- =========================
+             CART DRAWER
+        ========================== -->
+
+    <div class="cart-overlay"></div>
+        <aside id="cart-drawer" class="cart-drawer" aria-label="Shopping cart">
+            <div class="cart-header">
+                <h2>
+                    Your Cart
+              
+                </h2>
+                <button type="button" class="close-cart" aria-label="Close cart">
+                    &times;
+                </button>
+            </div>
+
+            <div class="cart-items" id="cart-items">
+
+
+            </div>
+
+            <div class="cart-footer"> 
+                <p>Items: <span id="cart-item-count" class="cart-items-count">0</span></p>
+                <p>
+                    Subtotal: <span id="cart-subtotal" class="cart-subtotal">0</span>
+                </p> 
+                <p class="cart-note">Delivery is confirmed on WhatsApp.</p>
+            
+                <button type="button" class="checkout-btn" id="checkout-btn" disabled>
+                    Checkout on WhatsApp
+                </button>
+            </div> 
+        </aside>
+    
+
+
+        <!---- ===== TOAST -->
+
+    <div id="toast" class="toast" role="status"></div>
+
+
+        <!-- Quick add sheet -->
+    <div class="quick-overlay" id="quick-overlay"></div>
+    <aside class="quick-add" id="quick-add" aria-label="Quick add to cart">
+        <button type="button" class="quick-close" id="quick-close" aria-label="Close">×</button>
+        <div id="quick-add-body"></div>
+    </aside>
+
+
+
+
+
+ 
+     <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+    
+    <script src="js/utils.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/whatsapp.js"></script>
+    <script src="js/contact.js"></script>       
+    
+</body>
+</html>

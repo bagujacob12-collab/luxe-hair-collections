@@ -40,5 +40,6 @@ function sendOrderToWhatsApp() {
         link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
         link.target = "-blank";
         link.rel = "noopener";
+        
 
     });

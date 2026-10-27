@@ -198,9 +198,4 @@ function updateCartSummary() {
 
 
 
-
-
-
-
-
 renderCart();
