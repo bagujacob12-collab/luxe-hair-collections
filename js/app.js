@@ -65,7 +65,8 @@ function createProductCard(product) {
     card.dataset.productId = product.id;
 
     card.addEventListener("click", () => {
-        openProductDetails(Number(card.dataset.productId));
+        /* openProductDetails(Number(card.dataset.productId)); */
+        window.location.href = `product.html?id=${product.id}`;   // go to the product page
     });
 
 

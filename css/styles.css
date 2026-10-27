@@ -2973,3 +2973,71 @@ body.dark-mode .filter-tag {
 #load-more[hidden] {
   display: none;   /* makes the hidden property win over display:block */
 }
+
+
+
+.pd-page { padding: 16px; max-width: 1100px; margin: 0 auto; }
+.pd-crumbs { font-size: 13px; margin-bottom: 12px; color: var(--color-text); opacity: .7; }
+.pd-grid { display: grid; gap: 20px; }
+.pd-image-wrap { position: relative; border-radius: 12px; overflow: hidden; }
+.pd-image-wrap img { width: 100%; display: block; }
+.pd-price { font-size: 24px; font-weight: 700; color: var(--color-secondary); margin: 6px 0; }
+.pd-stock.in { color: #2e8b57; }
+.pd-stock.out { color: #c0392b; }
+.pd-meta { opacity: .7; margin: 4px 0 12px; }
+.pd-desc { line-height: 1.6; margin-bottom: 16px; }
+.pd-info h3 { margin: 16px 0 8px; font-size: 15px; }
+.pd-lengths { display: flex; flex-wrap: wrap; gap: 8px; }
+.pd-pill { padding: 8px 14px; border: 1px solid var(--color-secondary); border-radius: var(--border-md); background: transparent; color: var(--text); cursor: pointer; }
+.pd-pill.active { background: var(--color-secondary); color: #fff; }
+.pd-total { margin: 16px 0; font-weight: 600; }
+.pd-actions { display: flex; flex-direction: column; gap: 10px; }
+.pd-actions .btn:disabled { opacity: .5; cursor: not-allowed; }
+.pd-related-title { margin: 40px 0 16px; }
+.pd-missing { text-align: center; padding: 80px 16px; }
+
+
+.pd-info .qty-controls {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.pd-info .qty-btn {
+  width: 40px;
+  height: 40px;
+  background: var(--color-cream);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  font-size: 1.2rem;
+  color: var(--color-primary);
+  cursor: pointer;
+}
+
+.pd-info .qty-btn:hover{
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+body.dark-mode .pd-info .qty-btn:hover{
+    background: var(--color-secondary);
+    border-color: var(--color-secondary);
+    color: var(--color-primary);
+}
+
+.pd-info .qty-value {
+  min-width: 24px;
+  text-align: center;
+  color: var(--color-text);
+}
+
+@media (min-width: 768px) {
+  .pd-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  .pd-actions { flex-direction: row; }
+}
+
+/* dark mode */
+body.dark-mode .pd-pill { color: var(--color-text); }
+body.dark-mode .pd-pill.active { color: #fff; }
+body.dark-mode .pd-crumbs a { color: var(--color-secondary); }
