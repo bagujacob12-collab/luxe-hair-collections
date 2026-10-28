@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services</title>
+  <meta name="description" content="Shop premium bundles, wigs, closures and frontals. Order easily on WhatsApp.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================== -->
+
+    <header class="site-header">
+
+        <nav class="navbar container">
+
+            <a href="index.html" class="brand">
+                <span class="brand-name">Luxe Hair</span>
+                <span class="brand-subtitle">Collections</span>
+            </a>
+
+            <div class="nav-menu">
+
+                <a href="index.html" class="nav-link">
+                    Home
+                </a>
+
+                <a href="shop.html" class="nav-link">
+                    Shop
+                </a>
+
+                <a href="visualizer.html" class="nav-link active">
+                    Visualizer
+                </a>
+
+                <a href="services.html" class="nav-link">
+                    Services
+                </a>
+
+                <a href="about.html" class="nav-link">
+                    About
+                </a>
+
+                <a href="contact.html" class="nav-link">
+                    Contact
+                </a>
+
+            </div>
+
+            <button
+                type="button"
+                class="theme-toggle"
+                aria-label="Toggle dark mode">
+
+                <span class="theme-icon">🌙</span>
+                
+            </button>
+
+            <div class="nav-actions">
+
+                <button
+                    type="button"
+                    id="cart-button"
+                    class="cart-button"
+                    aria-label="Open shopping cart"
+                >
+                    <span class="cart-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart-icon lucide-shopping-cart"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
+                    </span>
+
+                    <span class="cart-count">0</span>
+                </button>
+
+                <a
+                    href="https://wa.me/2349164220790"
+                    class="nav-whatsapp"
+                    target="_blank"
+                    rel="noopener"
+                    data-whatsapp
+                >
+                    WhatsApp
+                </a>
+
+                <button
+                    type="button"
+                    class="menu-toggle"
+                    aria-label="Open navigation menu"
+                    aria-expanded="false"
+                >
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <main>
+        <section class="hero-lux">
+            <svg class="strands" viewBox="0 0 800 320" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M-20 240 C 140 60, 300 340, 470 170 S 740 40, 840 150"/>
+            <path d="M-20 270 C 160 120, 330 330, 500 200 S 760 90, 840 190"/>
+            <path d="M-20 200 C 120 20, 280 300, 450 120 S 720 10, 840 100"/>
+            <path d="M-20 290 C 180 170, 350 320, 520 240 S 780 140, 840 230"/>
+            </svg>
+            <div class="hero-inner">
+            <h1>
+                <span class="line"><span>See where your</span></span>
+                <span class="line"><span>length will land.</span></span>
+            </h1>
+            <p>Pick a length and a texture. The line shows where the hair ends on the body.</p>
+            </div>
+        </section>
+
+        <section class="viz">
+            <div class="viz-stage">
+                <svg id="viz-svg" viewBox="0 0 400 700" role="img" aria-label="Back view of a body showing where the chosen hair length ends">
+                    <defs>
+                    <linearGradient id="vizBodyGrad" gradientUnits="userSpaceOnUse" x1="0" y1="110" x2="0" y2="700">
+                        <stop offset="0" style="stop-color: var(--viz-body); stop-opacity: 1"/>
+                        <stop offset="0.78" style="stop-color: var(--viz-body); stop-opacity: .9"/>
+                        <stop offset="1" style="stop-color: var(--viz-body); stop-opacity: 0"/>
+                    </linearGradient>
+                    <linearGradient id="vizLineGrad" gradientUnits="userSpaceOnUse" x1="0" y1="110" x2="0" y2="700">
+                        <stop offset="0" style="stop-color: var(--viz-line); stop-opacity: 1"/>
+                        <stop offset="0.7" style="stop-color: var(--viz-line); stop-opacity: .8"/>
+                        <stop offset="1" style="stop-color: var(--viz-line); stop-opacity: 0"/>
+                    </linearGradient>
+                    <linearGradient id="vizHairGrad" gradientUnits="userSpaceOnUse" x1="130" y1="0" x2="270" y2="0">
+                        <stop offset="0" style="stop-color: var(--viz-hair-edge)"/>
+                        <stop offset="0.5" style="stop-color: var(--viz-hair-shine)"/>
+                        <stop offset="1" style="stop-color: var(--viz-hair-edge)"/>
+                    </linearGradient>
+                    </defs>
+
+                    <!-- arms -->
+                    <path class="viz-body" d="M110.0 166.0 C108.2 169.0 101.8 175.0 99.0 184.0 C96.2 193.0 94.2 207.3 93.0 220.0 C91.8 232.7 91.8 246.7 92.0 260.0 C92.2 273.3 94.0 288.3 94.0 300.0 C94.0 311.7 93.2 318.3 92.0 330.0 C90.8 341.7 88.7 356.7 87.0 370.0 C85.3 383.3 83.3 397.5 82.0 410.0 C80.7 422.5 79.8 434.7 79.0 445.0 C78.2 455.3 76.3 465.5 77.0 472.0 C77.7 478.5 80.8 484.3 83.0 484.0 C85.2 483.7 88.5 477.3 90.0 470.0 C91.5 462.7 90.5 450.8 92.0 440.0 C93.5 429.2 96.7 416.7 99.0 405.0 C101.3 393.3 103.8 381.7 106.0 370.0 C108.2 358.3 110.3 346.7 112.0 335.0 C113.7 323.3 114.7 312.2 116.0 300.0 C117.3 287.8 119.0 274.3 120.0 262.0 C121.0 249.7 121.5 237.0 122.0 226.0 C122.5 215.0 122.3 204.3 123.0 196.0 C123.7 187.7 125.5 179.3 126.0 176.0 Z"/>
+                    <path class="viz-body" d="M290.0 166.0 C291.8 169.0 298.2 175.0 301.0 184.0 C303.8 193.0 305.8 207.3 307.0 220.0 C308.2 232.7 308.2 246.7 308.0 260.0 C307.8 273.3 306.0 288.3 306.0 300.0 C306.0 311.7 306.8 318.3 308.0 330.0 C309.2 341.7 311.3 356.7 313.0 370.0 C314.7 383.3 316.7 397.5 318.0 410.0 C319.3 422.5 320.2 434.7 321.0 445.0 C321.8 455.3 323.7 465.5 323.0 472.0 C322.3 478.5 319.2 484.3 317.0 484.0 C314.8 483.7 311.5 477.3 310.0 470.0 C308.5 462.7 309.5 450.8 308.0 440.0 C306.5 429.2 303.3 416.7 301.0 405.0 C298.7 393.3 296.2 381.7 294.0 370.0 C291.8 358.3 289.7 346.7 288.0 335.0 C286.3 323.3 285.3 312.2 284.0 300.0 C282.7 287.8 281.0 274.3 280.0 262.0 C279.0 249.7 278.5 237.0 278.0 226.0 C277.5 215.0 277.7 204.3 277.0 196.0 C276.3 187.7 274.5 179.3 274.0 176.0 Z"/>
+
+                    <!-- back of the head -->
+                    <ellipse class="viz-skin" cx="200" cy="80" rx="34" ry="42"/>
+
+                    <!-- torso -->
+                    <path class="viz-body" d="M214.0 112.0 C214.2 116.3 213.0 131.7 215.0 138.0 C217.0 144.3 219.8 147.0 226.0 150.0 C232.2 153.0 243.0 153.8 252.0 156.0 C261.0 158.2 273.7 160.3 280.0 163.0 C286.3 165.7 290.0 165.0 290.0 172.0 C290.0 179.0 283.3 195.3 280.0 205.0 C276.7 214.7 272.7 220.5 270.0 230.0 C267.3 239.5 266.7 251.7 264.0 262.0 C261.3 272.3 256.8 282.8 254.0 292.0 C251.2 301.2 247.0 308.0 247.0 317.0 C247.0 326.0 250.5 335.8 254.0 346.0 C257.5 356.2 263.7 367.7 268.0 378.0 C272.3 388.3 276.8 397.7 280.0 408.0 C283.2 418.3 286.7 428.0 287.0 440.0 C287.3 452.0 284.5 466.3 282.0 480.0 C279.5 493.7 275.3 507.0 272.0 522.0 C268.7 537.0 265.0 553.7 262.0 570.0 C259.0 586.3 256.0 598.3 254.0 620.0 C252.0 641.7 250.7 686.7 250.0 700.0 L150 700 C149.3 686.7 148.0 641.7 146.0 620.0 C144.0 598.3 141.0 586.3 138.0 570.0 C135.0 553.7 131.3 537.0 128.0 522.0 C124.7 507.0 120.5 493.7 118.0 480.0 C115.5 466.3 112.7 452.0 113.0 440.0 C113.3 428.0 116.8 418.3 120.0 408.0 C123.2 397.7 127.7 388.3 132.0 378.0 C136.3 367.7 142.5 356.2 146.0 346.0 C149.5 335.8 153.0 326.0 153.0 317.0 C153.0 308.0 148.8 301.2 146.0 292.0 C143.2 282.8 138.7 272.3 136.0 262.0 C133.3 251.7 132.7 239.5 130.0 230.0 C127.3 220.5 123.3 214.7 120.0 205.0 C116.7 195.3 110.0 179.0 110.0 172.0 C110.0 165.0 113.7 165.7 120.0 163.0 C126.3 160.3 139.0 158.2 148.0 156.0 C157.0 153.8 167.8 153.0 174.0 150.0 C180.2 147.0 183.0 144.3 185.0 138.0 C187.0 131.7 185.8 116.3 186.0 112.0 Z"/>
+
+                    <!-- spine and hip line (shown below the hair) -->
+                    <path class="viz-detail" d="M200 150 C197 230 203 300 200 380 C198 420 202 450 200 470"/>
+                    <path class="viz-detail" d="M200 462 C198 500 202 540 200 560"/>
+                    <path class="viz-detail" d="M200 560 C199 610 201 650 200 700"/>
+
+                    <!-- hair: drawn by JavaScript -->
+                    <path id="hair-body" class="viz-hair"/>
+                    <path id="hair-strands" class="viz-strands"/>
+
+                    <!-- the length marker -->
+                    <g id="viz-marker" class="viz-marker">
+                    <line x1="40" x2="334" y1="0" y2="0"/>
+                    <circle cx="334" cy="0" r="4"/>
+                    <text id="viz-marker-label" x="344" y="6"></text>
+                    </g>
+                </svg>
+            </div>
+
+            
+
+            <div class="viz-panel">
+            <h2 id="viz-title"></h2>
+            <p class="viz-landmark" id="viz-landmark"></p>
+            <p class="viz-note" id="viz-note"></p>
+
+            <div class="viz-control">
+                <label for="viz-length">Length <output id="viz-length-out"></output></label>
+                <input type="range" id="viz-length" min="12" max="30" step="2" value="18">
+                <div class="viz-ticks" aria-hidden="true"><span>12″</span><span>18″</span><span>24″</span><span>30″</span></div>
+            </div>
+
+            <div class="viz-control">
+                <span class="viz-label">Texture</span>
+                <div class="viz-textures" id="viz-textures">
+                <button type="button" class="pd-pill active" data-texture="Straight">Straight</button>
+                <button type="button" class="pd-pill" data-texture="Body Wave">Body Wave</button>
+                <button type="button" class="pd-pill" data-texture="Deep Wave">Deep Wave</button>
+                <button type="button" class="pd-pill" data-texture="Curly">Curly</button>
+                </div>
+            </div>
+
+            <div class="viz-actions">
+                <a class="service-link" id="viz-shop" href="shop.html">See it in the shop</a>
+                <a class="service-link solid" id="viz-ask" href="#" target="_blank" rel="noopener">Ask on WhatsApp</a>
+            </div>
+
+            <p class="viz-disclaimer">Based on an average height of about 5'5". On a taller or shorter person the same length lands a little lower or higher.</p>
+            </div>
+        </section>
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer class="site-footer">
+
+        <div class="container footer-grid">
+
+            <div class="footer-brand">
+
+                <a href="index.html" class="brand">
+
+                    <span class="brand-name">
+                        Luxe Hair
+                    </span>
+
+                    <span class="brand-subtitle">
+                        Collections
+                    </span>
+
+                </a>
+
+                <p>
+                    Premium hair and beauty,
+                    made simple.
+                </p>
+
+                <a
+                    href="https://wa.me/2349164220790"
+                    class="footer-whatsapp"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    Chat with us on WhatsApp →
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Explore
+                </h3>
+
+                <a href="home.html">
+                    Home
+                </a>
+
+                <a href="shop.html">
+                    Shop
+                </a>
+
+                <a href="services.html">
+                    Services
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Company
+                </h3>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    Follow Us
+                </h3>
+
+                <a href="#" target="_blank">
+                    Instagram
+                </a>
+
+                <a href="#" target="_blank">
+                    TikTok
+                </a>
+
+                <a href="#" target="_blank" data-whatsapp>
+                    WhatsApp
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="container footer-bottom">
+
+            <p>
+                © <span id="year">2026</span> Luxe Hair Collections.
+                All rights reserved.
+            </p>
+
+            <p>
+                Abuja, Nigeria
+            </p>
+
+        </div>
+
+    </footer>
+
+
+            <!-- =========================
+                    PRODUCT DETAILS MODAL
+            ========================== -->
+    <div id="product-details" class="product-details">
+        <div class="product-details-content">
+            <button class="close-details" type="button">&times;</button>
+
+            <div class="product-details-body">
+                <!-- JavaScript will insert product information here -->
+            </div>
+        </div>
+    </div>    
+
+    
+        <!-- =========================
+             CART DRAWER
+        ========================== -->
+
+    <div class="cart-overlay"></div>
+        <aside id="cart-drawer" class="cart-drawer" aria-label="Shopping cart">
+            <div class="cart-header">
+                <h2>
+                    Your Cart
+              
+                </h2>
+                <button type="button" class="close-cart" aria-label="Close cart">
+                    &times;
+                </button>
+            </div>
+
+            <div class="cart-items" id="cart-items">
+
+
+            </div>
+
+            <div class="cart-footer"> 
+                <p>Items: <span id="cart-item-count" class="cart-items-count">0</span></p>
+                <p>
+                    Subtotal: <span id="cart-subtotal" class="cart-subtotal">0</span>
+                </p> 
+                <p class="cart-note">Delivery is confirmed on WhatsApp.</p>
+            
+                <button type="button" class="checkout-btn" id="checkout-btn" disabled>
+                    Checkout on WhatsApp
+                </button>
+            </div> 
+        </aside>
+    
+
+
+        <!---- ===== TOAST -->
+
+    <div id="toast" class="toast" role="status"></div>
+
+
+        <!-- Quick add sheet -->
+    <div class="quick-overlay" id="quick-overlay"></div>
+    <aside class="quick-add" id="quick-add" aria-label="Quick add to cart">
+        <button type="button" class="quick-close" id="quick-close" aria-label="Close">×</button>
+        <div id="quick-add-body"></div>
+    </aside>
+
+
+
+
+
+ 
+     <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+    
+    <script src="js/utils.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/whatsapp.js"></script>
+    <script src="js/visualizer.js"></script>       
+    
+</body>
+</html>

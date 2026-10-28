@@ -3243,6 +3243,7 @@ body.dark-mode .pd-crumbs a { color: var(--color-secondary); }
 
 .about-arch {
   width: min(100%, 340px);
+  position: relative;
   aspect-ratio: 3 / 4;
   margin: 0 auto;
   border-radius: 999px 999px var(--border-radius-lg) var(--border-radius-lg);
@@ -3250,7 +3251,7 @@ body.dark-mode .pd-crumbs a { color: var(--color-secondary); }
   box-shadow: 0 0 0 10px var(--color-cream), 0 0 0 11px var(--color-secondary);   /* thin gold double frame */
   overflow: hidden;
 }
-.about-arch img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about-arch img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
 
 .values { max-width: 860px; margin: 0 auto; padding: 0 var(--space-sm) var(--space-2xl); }
 .values h2 { font-family: var(--font-heading); font-size: var(--text-xl); margin-bottom: var(--space-md); }
@@ -3283,15 +3284,15 @@ body.dark-mode .pd-crumbs a { color: var(--color-secondary); }
 
 /* ===== Dark mode ===== */
 body.dark-mode .service-group h2,
-body.dark-mode .service-head,
-body.dark-mode .about-lead,
-body.dark-mode .about-text .about-lead,
 body.dark-mode .value-row dt,
+body.dark-mode .about-text .about-lead,
+body.dark-mode .service-head { color: var(--color-white); }
+body.dark-mode .about-lead,
 body.dark-mode .service-link:not(.solid) { color: var(--color-secondary-light); }
-body.dark-mode .service-intro,
-body.dark-mode .service-body-inner p,
 body.dark-mode .about-text p,
 body.dark-mode .value-row dd,
+body.dark-mode .service-body-inner p { color: var(--color-beige); }
+body.dark-mode .service-intro,
 body.dark-mode .process-steps p,
 body.dark-mode .find-us p { color: var(--color-secondary-light); opacity: .85; }
 body.dark-mode .service-item,
@@ -3400,13 +3401,13 @@ body.dark-mode .about-arch { box-shadow: 0 0 0 10px var(--color-dark), 0 0 0 11p
 /* dark mode */
 body.dark-mode .channels h2,
 body.dark-mode .contact-form h2,
-body.dark-mode .channel-value { color: var(--color-secondary-light); }
+body.dark-mode .channel-value { color: var(--color-white); }
 body.dark-mode .channel-name,
 body.dark-mode .channel-note { color: var(--color-secondary-light); opacity: .8; }
 body.dark-mode .channel,
 body.dark-mode .channel:last-of-type { border-color: var(--color-primary-light); }
 body.dark-mode .contact-form { background: var(--color-dark-soft); }
-body.dark-mode .field label { color: var(--color-secondary-light); }
+body.dark-mode .field label { color: var(--color-beige); }
 body.dark-mode .field input,
 body.dark-mode .field select,
 body.dark-mode .field textarea {
@@ -3415,3 +3416,111 @@ body.dark-mode .field textarea {
   border-color: var(--color-primary-light);
 }
 body.dark-mode .field .error { color: #ff7b6b; }
+
+
+
+
+
+/* ===== Visualizer ===== */
+.viz {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: var(--space-lg) var(--space-sm) var(--space-2xl);
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.viz-stage {
+  --viz-body: var(--color-beige);
+  --viz-line: var(--color-secondary);
+  --viz-label: var(--color-primary);
+  --viz-hair-edge: var(--color-primary);
+  --viz-hair-shine: var(--color-primary-light);
+  --viz-strand: var(--color-secondary-light);
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  background: radial-gradient(circle at 50% 22%, var(--color-white) 0%, var(--color-cream) 72%);
+  height: min(62vh, 520px);
+  overflow: hidden;
+}
+.viz-stage svg { width: 100%; height: 100%; display: block; }
+
+.viz-body { fill: url(#vizBodyGrad); stroke: url(#vizLineGrad); stroke-width: 1.5; }
+.viz-skin { fill: var(--viz-body); stroke: var(--viz-line); stroke-width: 1.5; }
+.viz-hair { fill: url(#vizHairGrad); stroke: var(--viz-hair-edge); stroke-width: .8; stroke-linejoin: round; }
+.viz-strands { fill: none; stroke: var(--viz-strand); stroke-width: 1; stroke-linecap: round; opacity: .28; }
+.viz-detail { fill: none; stroke: var(--viz-line); stroke-width: 1; opacity: .35; }
+
+.viz-marker line {
+  stroke: var(--viz-line);
+  stroke-width: 1.5;
+  stroke-dasharray: 5 5;
+}
+.viz-marker circle { fill: var(--viz-line); }
+.viz-marker text {
+  fill: var(--viz-label);
+  font-family: var(--font-heading);
+  font-size: 20px;
+}
+
+/* panel */
+.viz-panel h2 {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  color: var(--color-primary);
+  line-height: 1.1;
+}
+.viz-landmark {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  color: var(--color-secondary);
+  margin: var(--space-xs) 0;
+}
+.viz-note { color: var(--color-text-light); line-height: 1.6; min-height: 3.2em; }
+
+.viz-control { margin-top: var(--space-md); }
+.viz-control label,
+.viz-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: var(--space-xs);
+  font-size: .95rem;
+  color: var(--color-text);
+}
+.viz-control output { font-family: var(--font-heading); color: var(--color-primary); }
+#viz-length { width: 100%; accent-color: var(--color-secondary); height: 32px; cursor: pointer; }
+.viz-ticks {
+  display: flex;
+  justify-content: space-between;
+  font-size: .8rem;
+  color: var(--color-text-light);
+}
+.viz-textures { display: flex; flex-wrap: wrap; gap: var(--space-xs); }
+
+.viz-actions { display: flex; flex-wrap: wrap; gap: var(--space-xs); margin-top: var(--space-lg); }
+.viz-disclaimer { margin-top: var(--space-md); font-size: .85rem; color: var(--color-text-light); line-height: 1.5; }
+
+@media (min-width: 900px) {
+  .viz { grid-template-columns: 1fr 1fr; gap: var(--space-2xl); align-items: start; }
+  .viz-stage { height: 680px; position: sticky; top: calc(var(--header-height) + var(--space-sm)); }
+}
+
+/* dark mode */
+body.dark-mode .viz-stage {
+  --viz-body: var(--color-primary);
+  --viz-label: var(--color-secondary-light);
+  --viz-hair-edge: var(--color-secondary);
+  --viz-hair-shine: var(--color-secondary-light);
+  --viz-strand: var(--color-primary);
+  border-color: var(--color-primary-light);
+  background: radial-gradient(circle at 50% 22%, var(--color-dark-soft) 0%, var(--color-dark) 78%);
+}
+body.dark-mode .viz-panel h2 { color: var(--color-secondary-light); }
+body.dark-mode .viz-panel .viz-landmark,
+body.dark-mode .viz-control output { color: var(--color-white); }
+body.dark-mode .viz-control label,
+body.dark-mode .viz-label { color: var(--color-white); }
+body.dark-mode .viz-note,
+body.dark-mode .viz-ticks,
+body.dark-mode .viz-disclaimer { color: var(--color-beige); opacity: .85; }

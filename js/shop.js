@@ -374,3 +374,21 @@ if (validCategory) {
 } else {
   renderShop();                 // normal first draw
 }
+
+
+
+// Visualizer links look like shop.html?length=18&texture=Body%20Wave
+const linkParams = new URLSearchParams(window.location.search);
+const linkLength = Number(linkParams.get("length"));   // 0 if missing
+const linkTexture = linkParams.get("texture");         // null if missing
+
+if (linkLength || linkTexture) {
+  // tick the matching boxes in the filter panel
+  lengthBoxes.forEach(box => {
+    if (Number(box.value) === linkLength) box.checked = true;
+  });
+  textureBoxes.forEach(box => {
+    if (box.value === linkTexture) box.checked = true;
+  });
+  onFilterChange();   // read the boxes and redraw the shop (your existing function)
+}
