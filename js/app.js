@@ -78,6 +78,8 @@ function createProductCard(product) {
     image.alt = product.name;
 
     imageWrapper.append(image);
+    image.loading = "lazy";   // the browser loads each picture only when it nears the screen
+    
 
     const badge = document.createElement("span");
 
